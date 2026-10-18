@@ -1,0 +1,106 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000;
+}
+#intro-screen{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(5, 3, 10, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+.dialogue-box {
+    background: rgba(17, 11, 26, 0.543);
+    border: 2px solid #7e22ce;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 450px;
+    box-shadow:0 0 25px rgba(126, 34, 206, 0.6);
+    font-family: 'Courier New', Courier, monospace;
+}
+.dialogue-box h2{
+    margin-top: 0;
+    color: #c084fc;
+}
+.dialogue-box p{
+    color: #7d53a7;
+}
+#start-btn {
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #7e22ce;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 0 0 10px #7e22ce;
+    transition: background 0.2s;
+}
+#start-btn:hover{
+    background: #9333ee;
+}
+#score-counter {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    z-index: 15;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.3rem;
+    color: #f3e8ff;
+    background: rgba(10, 5, 20, 0.7);
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: 1px solid #7e22ce;
+    display: none;
+}
+.bat {
+    position: absolute;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 5;
+    transition: transform 0.2s;
+    filter: drop-shadow(0 0 5px #a855f7);
+}
+.bat img {
+    width: 45px;
+    height: auto;
+}
+.bat:hover{
+    transform: scale(1.2);
+}
+#game-world {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(imgs/spooky-background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+#flashlight-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    pointer-events: none;
+    background: radial-gradient(circle 110px at var(--x, 50%) var(--y, 50%), transparent 0%, rgba(0, 0, 7, 0.975) 100%);
+}
