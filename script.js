@@ -18,6 +18,18 @@ const bgMusic = new Audio('imgs/spooky.mp3');
 bgMusic.loop = true;
 bgMusic.volume = 0.5;
 
+const laughSound = new Audio('imgs/witch.mp3');
+laughSound.volume = 0.9;
+
+const batSound = new Audio('imgs/bat.mp3');
+batSound.volume = 0.8;
+
+const clickSound = new Audio('imgs/click.mp3');
+clickSound.volume = 1.0;
+
+const winSound = new Audio('imgs/gameover.mp3');
+winSound.volume = 0.8;
+
 window.addEventListener('click', () => {
     if (bgMusic.paused) {
         bgMusic.currentTime = 3.3;
@@ -48,7 +60,18 @@ function playTone(freqStart, freqEnd, type, duration = 0.12) {
     osc.stop(now + duration);
 }
 
-startBtn.addEventListener('click', () => {
+startBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    
+    laughSound.currentTime = 0;
+    laughSound.play().catch(err => console.log("laugh audio error:", err));
+
+    clickSound.currentTime = 0;
+    clickSound.play().catch(err => console.log('click audio error:', err));
+
+    bgMusic.currentTime = 3.3;
+    bgMusic.play().catch(eer => console.log("BGM audio error:", err));
+
     introScreen.style.display = 'none';
     scoreCounter.style.display = 'block';
     initGame();
@@ -79,8 +102,11 @@ function initGame() {
         bat.addEventListener('click', () => {
             if (bat.classList.contains('caught')) return;
 
+            batSound.currentTime = 0;
+            batSound.setTimeout = 0.1;
+            batSound.play().catch(err => console.log("Bat audio error:", err));
            
-            playTone(1000, 900, 'sine');
+            playTone(1000, 900, 'sine', 0.08);
             setTimeout(() => playTone(800, 1320, 'triangle', 0.1), 30);
 
            
@@ -93,6 +119,11 @@ function initGame() {
 
            
             if (score === MAX_BATS) {
+                laughSound.currentTime = 0;
+                laughSound.play().catch(eer => console.log("Witch laugh audio error:", err));
+                winSound.currentTime = 0;
+                winSound.play().catch(eer => console.log("Win audio error:", err));
+
                 setTimeout(() => {
                     alert("GG! You found all the hidden bats!");
                 }, 300);
