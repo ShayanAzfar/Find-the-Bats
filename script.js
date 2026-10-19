@@ -103,7 +103,6 @@ function initGame() {
             if (bat.classList.contains('caught')) return;
 
             batSound.currentTime = 0;
-            batSound.setTimeout = 0.1;
             batSound.play().catch(err => console.log("Bat audio error:", err));
            
             playTone(1000, 900, 'sine', 0.08);
@@ -120,12 +119,13 @@ function initGame() {
            
             if (score === MAX_BATS) {
                 laughSound.currentTime = 0;
-                laughSound.play().catch(eer => console.log("Witch laugh audio error:", err));
+                laughSound.play().catch(err => console.log("Witch laugh audio error:", err));
                 winSound.currentTime = 0;
-                winSound.play().catch(eer => console.log("Win audio error:", err));
+                winSound.play().catch(err => console.log("Win audio error:", err));
 
                 setTimeout(() => {
                     alert("GG! You found all the hidden bats!");
+                    location.reload();
                 }, 300);
             }
         });
