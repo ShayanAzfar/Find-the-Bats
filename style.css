@@ -1,57 +1,82 @@
-body,
-html {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: #000;
+    background: #000;
 }
-#intro-screen{
+
+#game-world {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(5, 3, 10, 0.7);
+    inset: 0;
+    background: url(imgs/spooky-background.jpg);
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+#flashlight-overlay{
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+    background: radial-gradient(circle 110px at var(--x, 50%) var(--y, 50%), transparent, rgba(0, 0, 5, 0.98));
+}
+
+#intro-screen {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 3, 10, 0.75);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 20;
 }
+
 .dialogue-box {
-    background: rgba(17, 11, 26, 0.543);
-    border: 2px solid #7e22ce;
+    background: rgba(15, 10, 25, 0.2);
+    border: 2px solid #7c2d12;
     padding: 30px;
     border-radius: 12px;
     text-align: center;
     max-width: 450px;
-    box-shadow:0 0 25px rgba(126, 34, 206, 0.6);
+    box-shadow: 0 0 20px rgba(124, 45, 18, 0.4);
     font-family: 'Courier New', Courier, monospace;
 }
-.dialogue-box h2{
-    margin-top: 0;
-    color: #c084fc;
+
+.dialogue-box h2 {
+    margin-bottom: 15px;
+    color: #f43f5e;
 }
-.dialogue-box p{
-    color: #7d53a7;
+
+.dialogue-box p {
+    color: #fda4af;
+    line-height: 1.5;
 }
+
 #start-btn {
     margin-top: 20px;
-    padding: 10px 25px;
-    background: #7e22ce;
-    color: white;
+    padding: 12px 30px;
+    background: #9f1239;
+    color: #fff;
     border: none;
     border-radius: 6px;
     font-size: 1.1rem;
     cursor: pointer;
-    font-family: inherit;
-    box-shadow: 0 0 10px #7e22ce;
-    transition: background 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.2 ease;
 }
-#start-btn:hover{
-    background: #9333ee;
+
+#start-btn:hover {
+    background: #e11d48;
+    transform: translateY(-1px);
 }
+
 #score-counter {
     position: absolute;
     top: 20px;
@@ -59,48 +84,27 @@ html {
     z-index: 15;
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.3rem;
-    color: #f3e8ff;
-    background: rgba(10, 5, 20, 0.7);
-    padding: 8px 15px;
-    border-radius: 8px;
-    border: 1px solid #7e22ce;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: 1px solid #9f1239;
     display: none;
 }
+
 .bat {
     position: absolute;
-    font-size: 32px;
     cursor: pointer;
     z-index: 5;
-    transition: transform 0.2s;
-    filter: drop-shadow(0 0 5px #a855f7);
+    transition: transform 0.15s ease;
 }
+
 .bat img {
     width: 45px;
     height: auto;
-}
-.bat:hover{
-    transform: scale(1.2);
-}
-#game-world {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: url(imgs/spooky-background.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 1;
+    filter: drop-shadow(0 2px 8px rgba(225, 29, 72, 0.5));
 }
 
-#flashlight-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 10;
-    pointer-events: none;
-    background: radial-gradient(circle 110px at var(--x, 50%) var(--y, 50%), transparent 0%, rgba(0, 0, 7, 0.975) 100%);
+.bat:hover {
+    transform: scale(1.15);
 }
