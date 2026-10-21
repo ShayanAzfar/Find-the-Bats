@@ -13,4 +13,5 @@
 ## Inspiration?
 ### It is a nostalgic game for me, it reminds me of online games that i used to play in fiverr when i was little.
 
-<img width="1359" height="768" alt="image" src="https://github.com/user-attachments/assets/1563d6b5-4c96-4b1a-adee-4acf0d904eb5" />
+<img width="1365" height="608" alt="image" src="https://github.com/user-attachments/assets/33899299-9293-4479-bf96-1c628ce6778a" />
+
